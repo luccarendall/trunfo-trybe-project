@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F2F2F2;
 }
 
 code {
@@ -14,6 +15,7 @@ code {
 
 #root{
   display: flex;
+  justify-content: center;
   /* border: 1px solid red; */
   height: 400px;
 }
