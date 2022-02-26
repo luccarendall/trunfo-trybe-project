@@ -20,6 +20,9 @@ code {
   height: 400px;
 }
 
-input {
+label {
   display: flex;
+  padding: 5px;
+  justify-content: space-between;
 }
+

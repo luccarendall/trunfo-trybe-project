@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropType from 'prop-types';
 
@@ -49,11 +48,11 @@ class Inputs extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="checkboxInput">
-          CheckBox:
+        <label htmlFor="checkbox  ">
           <input type="checkbox" id="checkbox" name="checkbox" data-testid="trunfo-input" value={ cardTrunfo } onChange={ onInputChange } />
+          Super Trybe Trunfo
         </label>
-
+        <br />
         {/* onClick={ save }> */}
         <button type="submit" data-testid="save-button" disabled={ isSaveButtonDisabled } onClick={ onSaveButtonClick }>Salvar</button>
       </>
