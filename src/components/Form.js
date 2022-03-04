@@ -114,6 +114,7 @@ class Form extends React.Component {
           </label>
         </div>
 
+        {/* Lembrete pessoal: Passei 2 horas com erro no select e checkbox por pura falta de atenção ao código e a um detalhe no requisito. Lembrar de ler novamente com atenção sempre que travar */}
         <div>
           <label htmlFor="checkbox">
             Super Trybe Trunfo
