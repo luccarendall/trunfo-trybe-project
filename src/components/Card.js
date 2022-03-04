@@ -1,18 +1,26 @@
-// Crie um componente com o nome Card na pasta src/components e renderize-o no componente principal App. O componente Card deve receber as seguintes props:
-
-// cardName, uma string;
-// cardDescription, uma string;
-// cardAttr1, uma string;
-// cardAttr2, uma string;
-// cardAttr3, uma string;
-// cardImage, uma string;
-// cardRare, uma string;
-// cardTrunfo, um boolean;
-
 import React from 'react';
+import PropType from 'prop-types';
 
 class Card extends React.Component {
-    render ()
+  render() {
+    const {
+      cardName, cardDescription, cardAttr1,
+      cardAttr2, cardAttr3, cardImage, cardRare,
+      cardTrunfo } = this.props;
+
+    return (<h1>Funciona</h1>);
+  }
 }
+
+Card.propTypes = {
+  cardName: PropType.string,
+  cardDescription: PropType.string,
+  cardAttr1: PropType.string,
+  cardAttr2: PropType.string,
+  cardAttr3: PropType.string,
+  cardImage: PropType.string,
+  cardRare: PropType.string,
+  cardTrunfo: PropType.bool,
+}.isRequired;
 
 export default Card;
