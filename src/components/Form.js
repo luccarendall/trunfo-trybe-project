@@ -4,11 +4,19 @@ import PropType from 'prop-types';
 class Form extends React.Component {
   render() {
     const {
-      cardName, cardDescription, cardAttr1,
-      cardAttr2, cardAttr3, cardImage, cardRare,
-      cardTrunfo, isSaveButtonDisabled, onInputChange,
-      onSaveButtonClick } = this.props;
-
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+    } = this.props;
     return (
       <form>
         <div>
@@ -113,34 +121,32 @@ class Form extends React.Component {
             </select>
           </label>
         </div>
-
-        {/* Lembrete pessoal: Passei 2 horas com erro no select e checkbox por pura falta de atenção ao código e a um detalhe no requisito. Lembrar de ler novamente com atenção sempre que travar */}
         <div>
-          <label htmlFor="checkbox">
-            Super Trybe Trunfo
-            <input
-              type="checkbox"
-              id="checkbox"
-              name="cardTrunfo"
-              value="cardTrunfo"
-              data-testid="trunfo-input"
-              checked={ cardTrunfo }
-              onChange={ onInputChange }
-            />
-          </label>
+          {/* Lembrete pessoal: Passei 2 horas com erro no select e checkbox por pura falta de atenção ao código e a um detalhe no requisito. Lembrar de ler novamente com atenção sempre que travar */}
+          {hasTrunfo ? (<p>Você já tem um Super Trunfo em seu baralho</p>)// req 7
+            : (
+              <label htmlFor="selectstt">
+                <input
+                  onChange={ onInputChange }
+                  value="cardTrunfo"
+                  checked={ cardTrunfo }
+                  name="cardTrunfo"
+                  type="checkbox"
+                  id="selectstt"
+                  data-testid="trunfo-input"
+                />
+                Super Trybe Trunfo
+              </label>
+            )}
         </div>
-
-        <br />
-        {/* onClick={ save }> */}
         <div>
           <button
-            type="submit"
-            data-testid="save-button"
             disabled={ isSaveButtonDisabled }
             onClick={ onSaveButtonClick }
+            type="submit"
+            data-testid="save-button"
           >
             Salvar
-
           </button>
         </div>
       </form>
