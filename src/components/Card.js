@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PropType from 'prop-types';
 
 class Card extends React.Component {
@@ -8,7 +9,38 @@ class Card extends React.Component {
       cardAttr2, cardAttr3, cardImage, cardRare,
       cardTrunfo } = this.props;
 
-    return (<h1>Funciona</h1>);
+    return (
+      <>
+        <div data-testid="name-card">
+          {/* <cardName /> Entender pq usar assim ou da forma de baixo */}
+          { cardName }
+
+        </div>
+
+        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+
+        <div data-testid="description-card">
+          { cardDescription }
+
+        </div>
+
+        <div>
+          <h2 data-testid="attr1-card">{ cardAttr1 }</h2>
+
+          <h2 data-testid="attr2-card">{ cardAttr2 }</h2>
+
+          <h2 data-testid="attr3-card">{ cardAttr3 }</h2>
+
+        </div>
+
+        <div data-testid="rare-card">
+          { cardRare }
+
+        </div>
+
+        {cardTrunfo ? <div data-testid="trunfo-card">Super Trunfo</div> : ''}
+      </>
+    );
   }
 }
 
