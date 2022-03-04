@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      cardLibrary: [],
       cardName: '',
       cardDescription: '',
       cardAttr1: '',
@@ -19,6 +20,7 @@ class App extends React.Component {
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.saveButtonDisabled = this.saveButtonDisabled.bind(this);
+    this.saveButton = this.saveButton.bind(this);
   }
 
   onInputChange({ target }) {
@@ -63,11 +65,54 @@ class App extends React.Component {
     }
   }
 
+  saveButton(event) {
+    event.preventDefault();
+
+    const {
+      cardLibrary,
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    } = this.state;
+
+    const standardCard = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+
+    this.setState({
+      cardLibrary: [...cardLibrary, standardCard],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: false,
+    });
+  }
+
   render() {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form { ...this.state } onInputChange={ this.onInputChange } />
+        <Form
+          { ...this.state }
+          onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.saveButton }
+        />
         <Card { ...this.state } />
       </div>
     );
